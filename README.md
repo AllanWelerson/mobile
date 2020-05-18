@@ -1,0 +1,1 @@
+  Aplicativo feito com base na Semana Omnistack 11 utilizando os dados do JSONPlaceholder  
