@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
-import { View, FlatList, Image, Text, TouchableOpacity, RefreshControl } from 'react-native';
+import { View, ActivityIndicator, FlatList, Image, Text, TouchableOpacity, RefreshControl } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
 
@@ -68,7 +68,10 @@ const Posts = () => {
       <View style={styles.header}>
         <Image source={logoImg}/>
         <Text style={styles.headerText}>
-          <Text style={styles.headerTextBold}>{usersTotal} Users</Text>
+          <Text style={styles.headerTextBold}>
+            {usersTotal > 0 ? `${usersTotal} Users` : ''}
+            
+          </Text>
         </Text>
       </View>
 
@@ -104,9 +107,9 @@ const Posts = () => {
           </View>
         )}
       />
-      <Text style={styles.loading}>
-        {loading === true ? 'Carregando' : ''}
-      </Text>
+      <View style={styles.loading}>
+        {loading === true && refreshing === false ? <ActivityIndicator size="large" color="#8F69AC" /> : null}
+      </View>
     </View>
   );
 }

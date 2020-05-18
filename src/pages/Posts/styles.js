@@ -74,8 +74,8 @@ export default StyleSheet.create({
   },
 
   loading: {
-    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontWeight: 'bold',
-    fontSize: 14,
   }
 });
